@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="style.css" />
+		<script src="main.js" defer></script>
+	</head>
+	<body>
+		<header id="intro">
+			<button type="button" class="toggle round-button">
+				<img
+					src="https://img.icons8.com/android/28/000000/menu.png"
+					id="menu-img"
+					alt="The menu button"
+					width="28"
+					height="28"
+				/>
+			</button>
+			<img
+				src="https://img.icons8.com/ios-filled/50/000000/javascript-logo.png"
+				alt="A JavaScrpt logo"
+				height="50"
+				width="50"
+				id="logo"
+			/>
+			<h1>Concise JavaScript</h1>
+		</header>
+
+		<nav id="navbar" class="navbar">
+			<button type="button" class="collapse-button">X</button>
+			<div id="nav-wrapper">
+				<header><h2 id="nav-title">Objects</h2></header>
+				<ul id="nav-list">
+					<li class="nav-item">
+						<a class="nav-link" href="#creating_an_object"
+							>Creating an object</a
+						>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#methods">Methods</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#the_this_keyword">The this keyword</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#property_value_shorthand"
+							>Property value shorthand</a
+						>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#accessing_properties"
+							>Accessing properties</a
+						>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#object-oriented_programming"
+							>Object-oriented programming</a
+						>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<div id="main-wrapper">
+			<div class="filter"></div>
+			<button type="button" class="back-to-top round-button">
+				<img
+					src="https://img.icons8.com/ios/40/000000/up--v1.png"
+					id="arrow-img"
+					alt="The back-to-top button"
+					width="40"
+					height="40"
+				/>
+			</button>
+			<main id="main-doc">
+				<section class="main-section" id="creating_an_object">
+					<header class="topic"><h3>Creating an object</h3></header>
+					<p class="details">There are two ways of constructing an object:</p>
+					<ul class="list">
+						<li class="list-item">
+							We can designate an object literal to a variable using curly
+							braces. In other words, things that have curly brackets around
+							them become object properties.
+							<pre><code class="code">
+    let <var class="variable">bunny</var> = {
+      texture: "fluffy",
+      "favourite food": "roated carrots",
+      size: "small"
+    };
+           </code></pre>
+						</li>
+						<li class="list-item">
+							Alternatively, we can create an object using a constructor
+							function. In practice, this is rarely used.
+							<pre><code class="code">
+    let <var>bunny</var> = new Object();
+          </code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section class="main-section" id="methods">
+					<header class="topic"><h3>Methods</h3></header>
+					<p class="details">
+						Functions stored in properties are called methods. They are created
+						in the same way as normal properties.<span class="bold">
+							ES6 allows you to omit the colon and the function keyword.</span
+						>
+					</p>
+					<pre><code class="code">
+     let <var>bunny</var> = {
+       eat() {
+         console.log("The bunny ate quickly.");
+       }
+     };
+      </code></pre>
+					<p class="details">
+						Object methods can be invoked by
+						<code class="code">object.method(argument).</code>
+					</p>
+				</section>
+
+				<section class="main-section" id="the_this_keyword">
+					<header class="topic"><h3>The this keyword</h3></header>
+					<p class="details">
+						"This" is a keyword for functions.
+						<span class="bold"
+							>It is defined by how the function is invoked. Usually, it has
+							nothing to do with how a function is created.</span
+						>
+					</p>
+					<ul class="list">
+						<li class="list-item">
+							Inside a constructor function: "this" always refers to the newly
+							created instance.
+						</li>
+						<li class="list-item">
+							When an object's method is invoked, "this" refers to the object on
+							the left of the dot. This means that if an object invokes a method
+							it inherited from a prototype, this refers to the object that
+							called it.
+						</li>
+						<li class="list-item">
+							If a function is not invoked as a method, "this" is the global
+							subject in non-strict mode, and undefined in strict mode.
+						</li>
+						<li class="list-item">
+							<span class="bold"
+								>Arrow functions do not have their own "this".</span
+							>
+							They inherit it from the outer environment.
+						</li>
+					</ul>
+				</section>
+
+				<section class="main-section" id="property_value_shorthand">
+					<header class="topic"><h3>Property value shorthand</h3></header>
+					<p class="list-item">
+						When creating an object literal, if the property value is the same
+						as the value of a variable, we can omit the property value.
+					</p>
+					<pre><code class="code">
+    let <var>rabbit</var> = "cute";
+    let <var>bunny</var> = "even cuter";
+
+    let cuteAnimalCollection = {
+      rabbit,
+      bunny
+    };
+      </code></pre>
+					<pre><code class="code comments">
+    /*{
+      rabbit: "cute",
+      bunny: "even cuter"
+    }*/
+      </code></pre>
+				</section>
+
+				<section class="main-section" id="accessing_properties">
+					<header class="topic"><h3>Accessing properties</h3></header>
+					<p class="details">
+						We can use the dot notation to access an object's property. The word
+						after the dot must be the literal name of the property. Trying to
+						access a property that does not exist returns undefined.
+					</p>
+					<pre><code class="code">
+     let <var>bunny</var> = {
+       color: "white";
+     };
+     bunny.color; <span class="comments">//Returns "white"</span>
+      </code></pre>
+					<p class="details">
+						If the property name contains numbers, spaces, or special
+						characters, we must use the bracket notation.
+					</p>
+					<pre><code class="code">
+      let <var>bunny</var> = {
+        color: "white";
+      };
+      bunny["color"]; <span class="comments">//Returns "white"</span>
+      </code></pre>
+					<p class="details">
+						The expression inside the bracket will be evaluated. So we can also
+						put a variable, or more complicated expressions, into the bracket.
+					</p>
+				</section>
+
+				<section class="main-section" id="object-oriented_programming">
+					<header class="topic"><h3>Object-oriented programming</h3></header>
+					<p class="details">
+						Object-oriented programming (OOP) follows a few key principles:
+					</p>
+					<p class="details">
+						<span class="bold">Encapsulation</span>: This is achieved when each
+						object keeps its state private, inside a class. Other objects don't
+						have direct access to its state. Instead, they can only call a list
+						of public functions - called methods.
+					</p>
+					<p class="details">
+						<span class="bold">Polymorphism</span>: This is when code is written
+						to use an interface automatically knows how to work with any number
+						of different objects that provide that interface. In other words,
+						polymorphic code work with any objects that support the interface it
+						expects.
+					</p>
+					<p class="details">
+						<span class="bold">Inheritance</span>: Writing new classes as
+						subclasses of an existing class to inherit part of its behaviours.
+					</p>
+				</section>
+			</main>
+		</div>
+
+		<footer>
+			<div id="logo-tribute">
+				<a id="icons8" href="https://icons8.com/icon/106036/javascript-logo"
+					>JavaScript Logo icon by Icons8</a
+				>
+			</div>
+			<div id="reference">
+				<p>
+					All the documentation in this page is taken from
+					<a href="https://www.freecodecamp.org/" class="doc">FreeCodeCamp</a>,
+					<a
+						href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+						class="doc"
+						>MDN</a
+					>,
+					<a href="https://eloquentjavascript.net/" class="doc"
+						>Eloquent JavaScript</a
+					>
+					and
+					<a href="https://javascript.info/" class="doc"
+						>Modern JavaScript Tutorial.</a
+					>
+				</p>
+			</div>
+		</footer>
+	</body>
+</html>

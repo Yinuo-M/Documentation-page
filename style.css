@@ -1,0 +1,298 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	font-size: 16px;
+	font-family: "Source Sans Pro", sans-serif;
+	line-height: 1.5;
+	color: rgb(17, 16, 16);
+	background-color: rgb(247, 247, 247);
+}
+
+#intro {
+	background-color: rgb(247, 209, 113);
+	box-shadow: 0 7px 10px 2px rgb(181, 179, 179);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 4.5rem;
+	z-index: 1000;
+	position: relative;
+}
+
+#logo {
+	max-width: 3.5rem;
+	height: auto;
+	margin: 0.5rem;
+}
+
+h1 {
+	font-weight: 700;
+	white-space: nowrap;
+}
+
+.navbar {
+	position: fixed;
+	top: 4.5rem;
+	height: 100%;
+	width: 14.5rem;
+	border-right: 1px solid rgba(94, 94, 94, 0.3);
+	background-color: rgb(242, 242, 242);
+	overflow: auto;
+	z-index: 100;
+	transition: opacity 0.4s ease-out;
+}
+
+#nav-wrapper {
+	padding: 1.5rem;
+	padding-top: 2rem;
+}
+
+#nav-title {
+	font-weight: 400;
+	padding-bottom: 0.5rem;
+	border-bottom: 1px solid rgba(94, 94, 94, 0.6);
+}
+
+#nav-list {
+	list-style: none;
+	margin-top: 1rem;
+}
+
+.nav-item {
+	margin-top: 1.3rem;
+}
+
+.nav-link {
+	color: rgb(64, 64, 64);
+	text-decoration: none;
+}
+
+.nav-link:hover,
+.highlighted {
+	color: rgb(224, 157, 0);
+}
+
+#main-wrapper {
+	margin-left: 15rem;
+	position: relative;
+	transition: margin-left 0.3s ease-out;
+}
+
+.filter {
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgb(0, 0, 0, 0.5);
+	z-index: -1000;
+}
+
+#main-doc {
+	max-width: 70%;
+	padding-bottom: 5rem;
+	margin: 0 auto;
+}
+
+.main-section {
+	margin: 4rem auto 0 auto;
+}
+
+h3 {
+	font-size: 2rem;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+
+.details {
+	font-size: 1.1rem;
+	margin: 1rem 0;
+}
+
+.bold {
+	font-weight: 600;
+}
+
+.list {
+	list-style-position: inside;
+}
+
+.list-item {
+	margin: 0.5rem 0;
+	font-size: 1.1rem;
+}
+
+pre {
+	background-color: rgb(229, 229, 229, 0.5);
+	margin: 1rem;
+	width: 90%;
+	border-radius: 7px;
+	overflow: auto;
+}
+
+.code {
+	font-size: 0.8rem;
+}
+
+.comments {
+	color: rgba(0, 0, 0, 0.5);
+}
+
+footer {
+	background-color: rgb(30, 31, 38);
+	position: relative;
+	min-height: 5rem;
+	color: rgb(170, 166, 155);
+	font-weight: 300;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: space-around;
+	padding: 1% 2% 1% 30%;
+	text-align: right;
+}
+
+footer a {
+	color: rgb(209, 155, 29);
+	text-decoration: none;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
+
+#logo-tribute {
+	margin-bottom: 1rem;
+	margin-top: 0.2rem;
+}
+
+.round-button {
+	position: absolute;
+	height: 3rem;
+	width: 3rem;
+	border-style: none;
+	border-radius: 50%;
+	cursor: pointer;
+	color: rgba(0, 0, 0, 0.85);
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	display: flex;
+	background-color: rgb(247, 209, 113);
+	transition: opacity 0.2s ease-out;
+	pointer-events: none;
+	cursor: not-allowed;
+}
+
+.round-button:hover {
+	background-color: rgb(224, 187, 100);
+	color: black;
+	transition: all 0.15s ease-out;
+}
+
+.round-button:focus {
+	outline: none;
+}
+
+.toggle {
+	left: 0.3rem;
+	top: 0.8rem;
+}
+
+.collapse-button {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	border: none;
+	font-size: 1.5rem;
+	font-weight: 300;
+	color: rgb(119, 119, 119);
+	cursor: pointer;
+	background-color: transparent;
+	display: none;
+}
+
+.collapse-button:hover {
+	color: rgb(224, 157, 0);
+}
+
+.back-to-top {
+	position: fixed;
+	bottom: 1rem;
+	right: 1rem;
+}
+
+.collapse-button:focus {
+	outline: none;
+}
+
+@media (max-width: 1170px) {
+	#main-doc {
+		max-width: 80%;
+	}
+}
+
+@media (max-width: 810px) {
+	#main-wrapper {
+		margin-left: 0;
+	}
+
+	.navbar {
+		opacity: 0;
+		transition: none;
+		pointer-events: none;
+		cursor: not-allowed;
+	}
+
+	.round-button {
+		opacity: 1;
+		pointer-events: auto;
+		cursor: pointer;
+	}
+
+	pre {
+		width: 100%;
+	}
+}
+
+@media (max-width: 550px) {
+	#main-doc {
+		max-width: 90%;
+	}
+
+	pre {
+		margin: 1rem auto;
+	}
+
+	footer {
+		padding-left: 2%;
+		text-align: center;
+		align-items: center;
+	}
+}
+
+@media (max-width: 470px) {
+	#intro {
+		padding-right: 1%;
+		justify-content: flex-end;
+	}
+
+	#intro img {
+		width: 2rem;
+		height: auto;
+	}
+
+	h1 {
+		font-size: 1.3rem;
+	}
+}
+
+.show {
+	opacity: 1;
+	pointer-events: auto;
+	cursor: pointer;
+}
